@@ -1,0 +1,14 @@
+{
+  "name"         : "helyeah-web",
+  "version"      : "0.0.1",
+  "description"  : "Web application for the Helyeah project",
+  "main"         : "server.js",
+  "author"       : "wkicior",
+  "dependencies" : {
+      "express"    : "~4.13.3",
+      "mongoose"   : "~4.1.8",
+      "morgan"     : "~1.6.1",
+      "body-parser": "~1.14.0",
+      "method-override": "~2.3.5"
+    }
+}
