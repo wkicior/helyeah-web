@@ -15,44 +15,13 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
-    <script src="core.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/notifications/notificationPlansController.js"></script>
 
 </head>
-<body ng-controller="mainController">
-    <div class="container">
-
-        <div class="jumbotron text-center">
-            <h1>Gimme some wind<span class="label label-info">{{ notificationPlans.length }}</span></h1>
-        </div>
-
-        <div id="notification-plan-list" class="row">
-            <div class="col-sm-4 col-sm-offset-4">
-
-                <!-- LOOP OVER THE notificationPlans IN $scope.notificationPlans -->
-                <div class="checkbox" ng-repeat="notificationPlan in notificationPlans">
-                    <label>
-                        <input type="checkbox" ng-click="deleteNotificationPlan(notificationPlan._id)"> {{ notificationPlan.email }}
-                    </label>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- FORM TO CREATE NOTIFICATION PLANS -->
-        <div id="notification-plan-form" class="row">
-            <div class="col-sm-8 col-sm-offset-2 text-center">
-                <form>
-                    <div class="form-group">
-                        <input type="email" class="form-control input-lg text-center" placeholder="surfer.joe@helyeah.com" ng-model="formData.email">
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createNotificationPlan()">Add</button>
-                </form>
-            </div>
-        </div>
-
-    </div>
-
-</body>
+<body>
+  <div ng-view></div>
+<a/body>
 </html>
 
 

@@ -1,7 +1,4 @@
-// public/core.js
-var helyeah = angular.module('helyeah', []);
-
-function mainController($scope, $http) {
+helyeah.controller('NotificationPlansController', ['$scope', '$http', function($scope, $http) {
     $scope.formData = {};
 
     // when landing on the page, get all notification plans and show them
@@ -38,5 +35,4 @@ function mainController($scope, $http) {
                 console.log('Error: ' + data);
             });
     };
-
-}
+}]);
