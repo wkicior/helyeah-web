@@ -2,7 +2,7 @@ helyeah.controller('NotificationPlansController', ['$scope', '$http', function($
     $scope.formData = {};
 
     // when landing on the page, get all notification plans and show them
-    $http.get('/api/notification-plans')
+    $http.get('/resources/notification-plans')
         .success(function(data) {
             $scope.notificationPlans = data;
             console.log(data);
@@ -13,7 +13,7 @@ helyeah.controller('NotificationPlansController', ['$scope', '$http', function($
 
     // when submitting the add form, send the text to the node API
     $scope.createNotificationPlan = function() {
-        $http.post('/api/notification-plans', $scope.formData)
+        $http.post('/resources/notification-plans', $scope.formData)
             .success(function(data) {
                 $scope.formData = {}; // clear the form so our user is ready to enter another
                 $scope.notificationPlans = data;
@@ -26,7 +26,7 @@ helyeah.controller('NotificationPlansController', ['$scope', '$http', function($
 
     // delete a notification plan after checking it
     $scope.deleteNotificationPlan = function(id) {
-        $http.delete('/api/notification-plans/' + id)
+        $http.delete('/resources/notification-plans/' + id)
             .success(function(data) {
                 $scope.notificationPlans = data;
                 console.log(data);

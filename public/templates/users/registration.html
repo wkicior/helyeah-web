@@ -1,3 +1,27 @@
-<div class="jumbotron text-center">
-  <h1>Register me</h1>
+<div class="container">  
+  <div class="jumbotron text-center">
+    <h1>Registration Form</h1>
+  </div>
+
+  <div id="notification-plan-form" class="row">
+    <div class="col-sm-8 col-sm-offset-2 text-center">
+      <form class="form-horizontal">
+	<div class="form-group">
+	  <label class="control-label col-sm-2" for="email">Email:</label>
+	  <div class="col-sm-10">
+	    <input type="email" class="form-control input-lg text-center" placeholder="surfer.joe@helyeah.com" ng-model="formData.email">
+	  </div>
+	  <label class="control-label col-sm-2" for="password">Password:</label>
+	  <div class="col-sm-10">
+	    <input type="password" class="form-control input-lg text-center" ng-model="formData.password">
+	  </div>
+	  <label class="control-label col-sm-2" for="password">Password repeat:</label>
+	  <div class="col-sm-10">
+	    <input type="password" class="form-control input-lg text-center" ng-model="formData.passwordRepeat">
+	  </div>
+	</div>
+	<button type="submit" class="btn btn-primary btn-lg" ng-click="registerUser()">Register</button>
+      </form>
+    </div>
+  </div>
 </div>

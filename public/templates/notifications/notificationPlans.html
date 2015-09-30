@@ -6,8 +6,6 @@
   
   <div id="notification-plan-list" class="row">
     <div class="col-sm-4 col-sm-offset-4">
-      
-      <!-- LOOP OVER THE notificationPlans IN $scope.notificationPlans -->
       <div class="checkbox" ng-repeat="notificationPlan in notificationPlans">
 	<label>
 	  <input type="checkbox" ng-click="deleteNotificationPlan(notificationPlan._id)"> {{ notificationPlan.email }}
@@ -17,7 +15,6 @@
     </div>
   </div>
   
-  <!-- FORM TO CREATE NOTIFICATION PLANS -->
   <div id="notification-plan-form" class="row">
     <div class="col-sm-8 col-sm-offset-2 text-center">
       <form>

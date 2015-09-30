@@ -1,3 +1,12 @@
 helyeah.controller('RegistrationController', ['$scope', '$http', function($scope, $http) {
-    $scope.user = {};
-}
+    $scope.formData = {};
+
+    $scope.registerUser = function() {
+	$http.post('/resources/users', $scope.formData)
+	    .success(function(data) {
+		console.log(data);
+	    }).error(function(data){
+		console.log('Error: ' + data);
+	    });
+    };
+}]);
