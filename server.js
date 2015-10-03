@@ -17,12 +17,13 @@ app.use(bodyParser.urlencoded({'extended':'true'}));            // parse applica
 app.use(bodyParser.json());                                     // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 app.use(methodOverride());
-
+app.set('superSecret', config.secret); // secret variable
 
 // listen (start app with node server.js) ======================================
 app.listen(8080);
 console.log("App listening on port 8080");
 mongoose.connect(config.database);
 
-require('./app/notification-plans/routes.js')(app);
 require('./app/users/routes.js')(app);
+require('./app/authentication/routes.js')(app);
+require('./app/notification-plans/routes.js')(app);
