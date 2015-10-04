@@ -1,4 +1,3 @@
-// public/core.js
 var helyeah = angular.module('helyeah', ['ngRoute']);
 
 helyeah.config(['$routeProvider',function($routeProvider) {

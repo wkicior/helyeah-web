@@ -1,12 +1,9 @@
-helyeah.controller('AuthenticationController', ['$scope', '$http', 'AuthToken', function($scope, $http, AuthToken) {
+helyeah.controller('AuthenticationController', ['$scope', '$http', 'AuthenticationService', '$location', function($scope, $http, AuthenticationService, $location) {
     $scope.formData = {};
 
     $scope.authenticateUser = function() {
-	$http.post('/resources/authentication', $scope.formData)
-	    .success(function(data) {
-		AuthToken.setToken(data.token);
-	    }).error(function(data){
-		console.log('Error: ' + data);
-	    });
+	AuthenticationService.authenticate($scope.formData).then(function() {
+	    $location.path('/');    
+	});
     };
 }]);
