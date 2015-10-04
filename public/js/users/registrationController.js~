@@ -1,3 +1,0 @@
-helyeah.controller('NotificationPlansController', ['$scope', '$http', function($scope, $http) {
-    $scope.user = {};
-}

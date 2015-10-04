@@ -1,4 +1,5 @@
-helyeah.factory('AuthToken', function($window) {
+define(['./authentication'], function(authentication) {
+authentication.factory('AuthToken', function($window) {
     var authTokenFactory = {};
 
     authTokenFactory.getToken = function() {
@@ -13,7 +14,7 @@ helyeah.factory('AuthToken', function($window) {
 
 });
 
-helyeah.factory('TokenInterceptor', function($q, $location, AuthToken) {
+authentication.factory('TokenInterceptor', function($q, $location, AuthToken) {
   return {
     'request': function(config) {
 	var token = AuthToken.getToken();
@@ -25,7 +26,8 @@ helyeah.factory('TokenInterceptor', function($q, $location, AuthToken) {
   };
 });
 
-helyeah.config(['$httpProvider', function($httpProvider) {  
+authentication.config(['$httpProvider', function($httpProvider) {  
     $httpProvider.interceptors.push('TokenInterceptor');
 }]);
 
+});
