@@ -3,8 +3,11 @@ define(['angular','./authentication', './authenticationService'], function(angul
 	$scope.formData = {};
 
 	$scope.authenticateUser = function() {
-	    AuthenticationService.authenticate($scope.formData).then(function() {
-		$location.path('/notificationPlans');    
+	    AuthenticationService.authenticate($scope.formData).then(function(result) {
+		if (result.success)
+		    $location.path('/notificationPlans');
+		else
+		    $scope.authenticationForm.password.$setValidity("success", false);
 	    });
 	};
     }]);

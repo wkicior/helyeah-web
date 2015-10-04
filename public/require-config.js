@@ -3,11 +3,13 @@ requirejs.config({
     paths: {
 	angular: 'angular',
 	angularRoute: 'angular-route',
+	angularMessages: 'angular-messages',
 	app: '../app'
     },
     shim: {
 	'angular' : {'exports' : 'angular'},
 	'angularRoute': ['angular'],
+	'angularMessages': ['angular']
     },
     priority: ['angular']
 });

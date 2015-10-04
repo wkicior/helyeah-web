@@ -1,14 +1,11 @@
-define(['angular', './users'], function(angular, users) {
-    users.controller('RegistrationController', ['$scope', '$http', function($scope, $http) {
+define(['angular', './users', './registrationService'], function(angular, users, RegistrationService) {
+    users.controller('RegistrationController', ['$scope', '$http', 'RegistrationService', '$location', function($scope, $http, RegistrationService, $location) {
 	$scope.formData = {};
 
 	$scope.registerUser = function() {
-	    $http.post('/resources/users', $scope.formData)
-		.success(function(data) {
-		    console.log(data);
-		}).error(function(data){
-		    console.log('Error: ' + data);
-		});
+	    RegistrationService.registerUser($scope.formData).then(function() {
+		$location.path('/');
+	    });
 	};
     }]);
 });
