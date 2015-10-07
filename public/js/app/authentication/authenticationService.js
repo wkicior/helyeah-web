@@ -9,6 +9,15 @@ define(['angular', './authentication', './authenticationInterceptor'], function(
 			}
 			return result.data;
 		    });
+	    },
+
+	    logout: function() {
+		AuthToken.setToken(null);
+	    },
+
+	    wasAuthenticated: function() {
+		var result =  AuthToken.getToken() != "null" && AuthToken.getToken();
+		return result;
 	    }
 	}
     }]);

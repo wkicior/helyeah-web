@@ -13,7 +13,7 @@ define(['angular', 'angularRoute', 'angularMessages', 'app/notifications/notific
 		   templateUrl: 'templates/authentication/authentication.html',
 		   controller: 'AuthenticationController'
 	       }).otherwise({
-		   redirectTo: '/authenticate'
+		   redirectTo: 'authenticate'
 	       });			
 	   }]);
        });

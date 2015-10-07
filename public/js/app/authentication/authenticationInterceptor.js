@@ -15,19 +15,19 @@ authentication.factory('AuthToken', function($window) {
 });
 
 authentication.factory('TokenInterceptor', function($q, $location, AuthToken) {
-  return {
-    'request': function(config) {
-	var token = AuthToken.getToken();
-	if (token) {
-	    config.headers['x-access-token'] = token;
+    return {
+	'request': function(config) {
+	    var token = AuthToken.getToken();
+	    if (token) {
+		config.headers['x-access-token'] = token;
+	    }
+	    return config;
 	}
-	return config;
-    }
-  };
+    };
 });
-
-authentication.config(['$httpProvider', function($httpProvider) {  
-    $httpProvider.interceptors.push('TokenInterceptor');
-}]);
-
+    
+    authentication.config(['$httpProvider', function($httpProvider) {  
+	$httpProvider.interceptors.push('TokenInterceptor');
+    }]);
+    
 });
