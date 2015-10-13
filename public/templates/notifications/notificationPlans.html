@@ -1,27 +1,17 @@
 <div class="container">
+  <link href="../css/bootstrap-switch.min.css" rel="stylesheet">
   <div ng-include="'/templates/notifications/panel.html'"/>
   <div class="jumbotron text-center">
-    <h1>Gimme some wind<span class="label label-info">{{ notificationPlans.length }}</span></h1>
+    <h1>Gimme some wind</h1>
   </div>
-  
-  <div id="notification-plan-list" class="row">
-    <div class="col-sm-4 col-sm-offset-4">
-      <div class="checkbox" ng-repeat="notificationPlan in notificationPlans">
-	<label>
-	  <input type="checkbox" ng-click="deleteNotificationPlan(notificationPlan._id)"> {{ notificationPlan.email }}
-	</label>
-      </div>
-      
-    </div>
-  </div>
-  
+
   <div id="notification-plan-form" class="row">
     <div class="col-sm-8 col-sm-offset-2 text-center">
       <form>
+
 	<div class="form-group">
-	  <input type="email" class="form-control input-lg text-center" placeholder="surfer.joe@helyeah.com" ng-model="formData.email">
+	  <input type="checkbox" name="notification-checkbox" ng-model="formData.enabled" ng-checked="isNotificationEnabled()" ng-change="postNotificationPlan()" />
 	</div>
-	<button type="submit" class="btn btn-primary btn-lg" ng-click="createNotificationPlan()">Add</button>
       </form>
     </div>
   </div>

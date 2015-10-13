@@ -9,8 +9,7 @@ module.exports = function(app) {
 	var token = req.body.token || req.query.token || req.headers['x-access-token'];
 	
 	// decode token
-	if (token) {
-	    
+	if (token) {	    
 	    // verifies secret and checks exp
 	    jwt.verify(token, app.get('superSecret'), function(err, decoded) {      
 		if (err) {
@@ -22,8 +21,7 @@ module.exports = function(app) {
 		}
 	    });
 	    
-	} else {
-	    
+	} else {	    
 	    // if there is no token
 	    // return an error
 	    return res.status(403).send({ 
@@ -50,8 +48,9 @@ module.exports = function(app) {
 
     // create notification plan and send back all of them after creation
     app.post('/resources/notification-plans', function(req, res) {
+	console.log(req.decoded._id);
         NotificationPlan.create({
-            email : req.body.email,
+            user_id : req.decoded._id,
             done : false
         }, function(err, notificationPlan) {
             if (err)

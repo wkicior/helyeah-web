@@ -7,8 +7,9 @@ define(['angular', './notificationPlans'], function(angular, notificationPlans) 
 			return result.data;
 		    });
 	    },
-	    createNotificationPlans: function(formData) {
-		return $http.post('/resources/notification-plans', formData)
+	    createNotificationPlan: function() {
+		var data = {'email' : 'test123@wp.pl'};
+		return $http.post('/resources/notification-plans', data)
 		    .then(function(result) {
 			return result.data;
 		    });	    

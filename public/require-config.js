@@ -4,6 +4,7 @@ requirejs.config({
 	angular: 'angular',
 	angularRoute: 'angular-route',
 	angularMessages: 'angular-messages',
+	bootstrapSwitch: 'bootstrap-switch.min',
 	app: '../app'
     },
     shim: {
